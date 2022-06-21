@@ -12,16 +12,7 @@ const usePokemon = () => {
   return pokemons;
 }
 
-export const Count = ()=>{
-  const {data} = usePokemon();
-  return (
-    <React.Fragment>
-      pokemons count is {data?.results.length}
-    </React.Fragment>
-  )
-}
-
-export const Pokemon = () => {
+const Pokemons = () => {
   const {data, isLoading, isError, isFetching, error} = usePokemon();
   const queryClient = useQueryClient()
   return (
@@ -39,3 +30,4 @@ export const Pokemon = () => {
     </React.Fragment>
   )
 }
+export default Pokemons;
