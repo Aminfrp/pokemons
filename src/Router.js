@@ -7,18 +7,22 @@ import About from "./pages/about/About"
 import Splash from './pages/splash/Splash';
 import  Pokemons  from './pages/pokemons/Pokemons';
 import Pokemon from "./pages/pokemons/Pokemon";
+import Layouts from "./components/layouts/Layouts";
 
 const Router = () => {
   return(
     <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<Splash />} />
-      <Route path="/pokemons" element={<Pokemons />} >
-        <Route path=":id" element={<Pokemon/>} />
-      </Route>
-      <Route path="/about" element={<About />} />
-    </Routes>
-  </BrowserRouter>
+      <Layouts>
+        <Routes>
+          <Route path="/" element={<Splash />} />
+          <Route path="pokemons">
+            <Route index element={<Pokemons />} />
+            <Route path=":id" element={<Pokemon/>} />
+          </Route>
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </Layouts>
+    </BrowserRouter>
   )
 }
 
