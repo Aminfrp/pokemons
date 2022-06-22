@@ -19,17 +19,17 @@ const Header = () => {
   }
   return (
   <AppBar position="static">
-    <Toolbar variant="dense" className='d-flex justify-content-between'>
+    <Toolbar className='d-flex justify-content-between'>
       <NavLink to="/" style={linkStyle}>
         <Typography variant="h6" color="inherit" component="div">
           POKEMON
         </Typography>
       </NavLink>
       <div>
-        <NavLink to="/about" style={({isActive}) => isActive? activeClass:linkStyle} className="mx-2">
+        <NavLink to="/about" style={({isActive}) => isActive? activeClass:linkStyle} className="mx-3">
           About
         </NavLink>
-        <NavLink to="/pokemons" style={({isActive}) => isActive? activeClass:linkStyle}>
+        <NavLink to="/pokemons" style={({isActive}) => isActive? activeClass:linkStyle} className="mx-2">
           Pokemons
         </NavLink>
       </div>
