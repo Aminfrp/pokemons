@@ -25,17 +25,19 @@ const FindPokemon = () => {
   return (
     <React.Fragment>
       <Grid container>
-      <Grid xs={12} item>
-        <TextField id="outlined-basic" label="Search Pokemon" variant="outlined" onChange={(event)=> handleSearch(event)}/>
-      </Grid>
-      <Grid xs={12} item>
-        <img
-          alt="Loading ..."
-          src={data?.sprites?.front_default}
-          width={200}
-          height={200}
-        />  
-      </Grid>
+        <Grid xs={12} md={data?.sprites?6:12} sm={12} item className='d-flex align-items-center justify-content-end'>
+          <TextField className="w-100" label="Search Pokemon" variant="outlined" onChange={(event)=> handleSearch(event)}/>
+        </Grid>
+        <Grid xs={12} md={6} sm={12} item className='d-flex align-items-center justify-content-center'>
+          {
+            data?.sprites? <img
+            alt="Loading ..."
+            src={data?.sprites?.front_default}
+            width={200}
+            height={200}
+          /> :null
+          }
+        </Grid>
       </Grid>
     </React.Fragment>
   )
