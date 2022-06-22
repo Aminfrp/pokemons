@@ -40,7 +40,7 @@ const Pokemon = () => {
         isLoading ? <CircularProgress/> :
         images.length?   
           <Container className='d-flex flex-column justify-content-start' style={{maxWidth:700}}>
-            <Typography variant='button' className="text-center">{params.id}</Typography>
+            <Typography variant='h4' className="text-center mb-5 text-dark"><b style={{textShadow:"-1px 5px 5px grey"}}>{params.id.toUpperCase()}</b></Typography>
             <Swiper
               pagination={{
                 dynamicBullets: true,
