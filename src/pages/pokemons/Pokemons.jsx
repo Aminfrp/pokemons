@@ -45,11 +45,11 @@ const Pokemons = () => {
   return (
     <Container className='d-flex'>
       {url.previous?<Grid className='d-flex align-items-center'><ArrowBackIosNewIcon onClick={prevPage} /></Grid>:null}
-      <Grid className='d-flex justify-content-center flex-column'>
+      <Grid className='d-flex justify-content-center flex-column w-100'>
         <Grid style={{padding:"0 5.5%"}} className="w-100">
           <FindPokemon/>
         </Grid>
-        <Grid container className="d-flex justify-content-center">
+        <Grid container className="d-flex justify-content-center my-3">
           {isLoading ? <CircularProgress/>: isError ? 
           <Typography component={"b"} color={"red"}> {error.message} </Typography>
             : 
