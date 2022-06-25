@@ -9,7 +9,9 @@ import { useQueryClient } from 'react-query'
 
 const Pokemons = () => {
   const [url,setUrl] = useState({next:true,previous:null,status:"all"})
-  const {data, isLoading, isError, isFetching, error} = usePokemons(url);
+  const [next,setNext] = useState(false)
+  const [prev,setPrev] = useState(false)
+  const {data, isLoading, isError, isFetching, error} = usePokemons(url)
   const query = useQueryClient();
   const theme = useTheme();
 
@@ -34,17 +36,21 @@ const Pokemons = () => {
   useEffect(()=>{
     if(data){
       if(data.next){
-        setUrl({...url,next:true})
+        setNext(true);
+      }else{
+        setNext(false);
       }
       if(data.previous){
-        setUrl({...url,previous:true})
+        setPrev(true);
+      }else{
+        setPrev(false);
       }
     }
   },[data])
 
   return (
     <Container className='d-flex'>
-      {url.previous?<Grid className='d-flex align-items-center'><ArrowBackIosNewIcon onClick={prevPage} /></Grid>:null}
+      {prev?<Grid className='d-flex align-items-center'><ArrowBackIosNewIcon onClick={prevPage} /></Grid>:null}
       <Grid className='d-flex justify-content-center flex-column w-100'>
         <Grid style={{padding:"0 5.5%"}} className="w-100">
           <FindPokemon/>
@@ -89,7 +95,7 @@ const Pokemons = () => {
             {isFetching?<CircularProgress/>:null}
         </Grid>
       </Grid>
-      {url.next?<Grid className='d-flex align-items-center' onClick={nextPage}><ArrowForwardIosIcon/></Grid>:null}
+      {next?<Grid className='d-flex align-items-center' onClick={nextPage}><ArrowForwardIosIcon/></Grid>:null}
     </Container>
   )
 }
